@@ -2,9 +2,10 @@ const http = require("http");
 const express= require("express");
 const cors = require("cors");
 const socketIO = require("socket.io");
+require('dotenv').config()
 
 const app = express();
-const port = 4500 || process.env.PORT;
+const port = process.env.PORT;
 
 const users=[{}];
 
@@ -39,6 +40,6 @@ io.on("connection",(socket)=>{
 
 });
 
-server.listen(port,()=>{
-    console.log(`server is working on http://localhost:${port}`);
+server.listen(process.env.PORT,()=>{
+    console.log(`server is working on ${port}`);
 })
